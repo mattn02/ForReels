@@ -1,0 +1,6 @@
+framework module Pods_ForReels {
+  umbrella header "Pods-ForReels-umbrella.h"
+
+  export *
+  module * { export * }
+}

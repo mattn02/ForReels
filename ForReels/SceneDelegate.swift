@@ -3,7 +3,7 @@
 //  ForReels
 //
 //  Created by Matthew Nguyen on 9/15/22.
-//
+//  mostly for ipad apps
 
 import UIKit
 

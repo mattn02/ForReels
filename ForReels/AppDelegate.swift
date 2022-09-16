@@ -4,7 +4,8 @@
 //
 //  Created by Matthew Nguyen on 9/15/22.
 //
-
+// app delegate is main entry point
+// put one-time code (registration, libraries)
 import UIKit
 
 @main
