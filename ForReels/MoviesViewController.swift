@@ -65,9 +65,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String // cast into string
         let synopsis = movie["overview"] as! String
+        let rating = movie["vote_average"] as! Double
         
         cell.titleLabel!.text = title
         cell.synopsisLabel!.text = synopsis
+        cell.ratingLabel!.text = String(rating) + "/10"
         
         let baseUrl = "https://image.tmdb.org/t/p/w185"
         let posterPath = movie["poster_path"] as! String
@@ -78,5 +80,26 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // sender -> cell that is tapped on
+        
+        // prepare for next screen
+        // Get new VC using segue.destination
+        // Pass selected object to the new view controller
+        
+        // Find selected movie
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        
+        
+        // Pass selected movie to details view controller
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+    }
 }
 
